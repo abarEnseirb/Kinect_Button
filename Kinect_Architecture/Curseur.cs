@@ -28,7 +28,6 @@ public class Curseur
 
     private Grid global;
     private List<Image> imageButtons;
-    private Image curseur;
     private Ellipse rond;
     public HoverButton kinectButton;
     public List<System.Windows.Controls.Button> buttons;
@@ -36,10 +35,9 @@ public class Curseur
 
 
 
-    public Curseur(Grid global, Image curseur, Ellipse rond, HoverButton kinectButton, System.Windows.Controls.Button button1, System.Windows.Controls.Button button2, System.Windows.Controls.Button quitButton)
+    public Curseur(Grid global, Ellipse rond, HoverButton kinectButton, System.Windows.Controls.Button button1, System.Windows.Controls.Button button2, System.Windows.Controls.Button quitButton)
 	{
         this.global = global;
-        this.curseur = curseur;
         this.rond = rond;
         this.imageButtons = new List<Image>();
         this.kinectButton = kinectButton;
@@ -71,9 +69,6 @@ public class Curseur
                 (kinectButton.ActualHeight / 2.0));
             Canvas.SetLeft(kinectButton, handX);
             Canvas.SetTop(kinectButton, handY);
-
-            Canvas.SetLeft(this.curseur,handX);
-            Canvas.SetTop(this.curseur, handY);
 
             if (isHandOver(kinectButton, buttons)) kinectButton.Hovering();
             else kinectButton.Release();
@@ -141,7 +136,7 @@ public class Curseur
 
     /// OLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 
-    /* This methode select the focus hand */
+    /* 
     private JointType HandFocus(Skeleton skeleton)
     {
         if (skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HandLeft].Position.Y)
@@ -165,7 +160,7 @@ public class Curseur
         }
     }
 
-    /* This methode set the position of the curseur */
+    
     public void SetCurseur(KinectSensor sensor, Skeleton skeleton) 
     {
         CoordinateMapper cm = new CoordinateMapper(sensor);
@@ -183,7 +178,7 @@ public class Curseur
         
     }
 
-    /* Metode de gestion d'evenement: Curseur dans une image bouton */
+    
     public void ImageConstainsCurseurEventArgs(Object sender, EventArgs e)
     {
         System.Console.WriteLine("je suis dans "+sender.ToString());
@@ -191,7 +186,7 @@ public class Curseur
     }
 
 
-    /* This methode checks if the curseur is on a image */
+    
     public bool ImageContainsCurseur(Image imageButton) 
     {
         Double Left = Canvas.GetLeft(imageButton);
@@ -270,7 +265,7 @@ public class Curseur
         scaledY = (int)y;
     }
 
-   
+   */
     
 
 }

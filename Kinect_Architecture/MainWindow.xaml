@@ -7,7 +7,6 @@
     <Grid x:Name="global" Loaded="Window_Loaded">
 
         <Canvas Name ="SkeletCanvas" Background="AliceBlue">
-            <Image x:Name ="curseur_image" Height="10" Width="10" Canvas.Left="192" Canvas.Top="60" Source="Ressources/Images/hand_r.png" RenderTransformOrigin="0.5,0.56" Visibility="Visible"  />
 
             <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                           
                                 ImageSource="Ressources/Images/RightHand.png"  

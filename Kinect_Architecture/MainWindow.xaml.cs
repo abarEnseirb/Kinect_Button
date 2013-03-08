@@ -32,7 +32,7 @@ namespace Kinect
         public MainWindow()
         {
             InitializeComponent();
-            kinect = new KinectMain(global, curseur_image, rond, kinectButton, button1, button2, quitButton);
+            kinect = new KinectMain(global, rond, kinectButton, button1, button2, quitButton);
             kinectButton.Click += new RoutedEventHandler(kinectButton_Click);
             
         }
