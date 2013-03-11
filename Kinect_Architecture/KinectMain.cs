@@ -127,8 +127,8 @@ namespace Kinect_Architecture
                             }
                             else
                             {
-                                Joint primaryHand = this.curseur.GetPrimaryHand(skeletonFocus);
-                                this.curseur.TrackHand(primaryHand,sensor);
+                                //Joint primaryHand = this.curseur.GetPrimaryHand(skeletonFocus);
+                                this.curseur.TrackHand(sensor, skeletonFocus);
                             }
 
                             gestureCamera.OnGesture(SkeletonManagementData[i].skeleton);

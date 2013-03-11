@@ -33,6 +33,9 @@ public class Curseur
     public List<System.Windows.Controls.Button> buttons;
     public System.Windows.Controls.Button selected;
 
+    private bool isLeft;
+    private bool isTrackable;
+
 
 
     public Curseur(Grid global, Ellipse rond, HoverButton kinectButton, System.Windows.Controls.Button button1, System.Windows.Controls.Button button2, System.Windows.Controls.Button quitButton)
@@ -46,10 +49,67 @@ public class Curseur
 
 
     //track and display hand
-    public void TrackHand(Joint hand, KinectSensor sensor)
+    public void TrackHand(KinectSensor sensor, Skeleton skeleton)
     {
+
+        int leftX, leftY, rightX, rightY;
+        Joint leftHandJoint = skeleton.Joints[JointType.HandLeft];
+        Joint rightHandJoint = skeleton.Joints[JointType.HandRight];
+
+        float leftZ = leftHandJoint.Position.Z;
+        float rightZ = rightHandJoint.Position.Z;
+
+        ScaleXY(skeleton.Joints[JointType.ShoulderCenter], false, leftHandJoint, out leftX, out leftY);
+        ScaleXY(skeleton.Joints[JointType.ShoulderCenter], true, rightHandJoint, out rightX, out rightY);
+
+        if (leftHandJoint.TrackingState == JointTrackingState.Tracked && leftZ < rightZ && leftY < SystemParameters.PrimaryScreenHeight)
+        {
+            this.isTrackable = true;
+            this.isLeft = true;
+            kinectButton.Visibility = System.Windows.Visibility.Visible;
+            Canvas.SetLeft(kinectButton, leftX);
+            Canvas.SetTop(kinectButton, leftY);
+        }
+        else if (rightHandJoint.TrackingState == JointTrackingState.Tracked && rightY < SystemParameters.PrimaryScreenHeight)
+        {
+            this.isTrackable = true;
+            this.isLeft = false;
+            kinectButton.Visibility = System.Windows.Visibility.Visible;
+            Canvas.SetLeft(kinectButton, rightX);
+            Canvas.SetTop(kinectButton,rightY);
+        }
+        else
+        {
+            this.isTrackable = false;
+            kinectButton.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        if (isHandOver(kinectButton, buttons)) kinectButton.Hovering();
+        else kinectButton.Release();
+
+        if ((isTrackable) || (isLeft))
+        {
+            kinectButton.ImageSource = "/Ressources/Images/LeftHand.png";
+            kinectButton.ActiveImageSource = "/Ressources/Images/LeftHand.png";
+        }
+        else if (isTrackable)
+        {
+            kinectButton.ImageSource = "/Ressources/Images/RightHand.png";
+            kinectButton.ActiveImageSource = "/Ressources/Images/RightHand.png";
+        }
+
+
+
+
+
+
+        /*
+
+
         float handX;
         float handY;
+
+        Joint hand = GetPrimaryHand(skeleton);
 
         if (hand.TrackingState == JointTrackingState.NotTracked)
         {
@@ -79,7 +139,7 @@ public class Curseur
                 kinectButton.ImageSource = "/Ressources/Images/LeftHand.png";
                 kinectButton.ActiveImageSource = "/Ressources/Images/LeftHand.png";
             }
-       }
+       }*/
     }
 
     //detect if hand is overlapping over any button
@@ -98,6 +158,12 @@ public class Curseur
                 handY < targetTopLeft.Y + target.Height)
             {
                 selected = target;
+
+                // set the X and Y of the hand so it is centered over the button
+                Point buttonCenter = new Point(targetTopLeft.X + target.Width/2 - kinectButton.Width/2, targetTopLeft.Y + target.Height/2 - kinectButton.Height/2);
+                Canvas.SetLeft(kinectButton, buttonCenter.X);
+                Canvas.SetTop(kinectButton, buttonCenter.Y);
+              
                 return true;
             }
         }
@@ -111,6 +177,8 @@ public class Curseur
         if (skeleton != null)
         {
             primaryHand = skeleton.Joints[JointType.HandLeft];
+            this.isLeft = true;
+
             Joint rightHand = skeleton.Joints[JointType.HandRight];
 
             if (rightHand.TrackingState != JointTrackingState.NotTracked)
@@ -118,12 +186,14 @@ public class Curseur
                 if (primaryHand.TrackingState == JointTrackingState.NotTracked)
                 {
                     primaryHand = rightHand;
+                    this.isLeft = false;
                 }
                 else
                 {
                     if (primaryHand.Position.Z > rightHand.Position.Z)
                     {
                         primaryHand = rightHand;
+                        this.isLeft = false;
                     }
                 }
             }
@@ -131,6 +201,33 @@ public class Curseur
         return primaryHand;
     }
 
+    // Used to set whether the hand is the left or right hand. True = Left, False = Right.
+    public bool IsLeft
+    {
+        get
+        {
+            return this.isLeft;
+        }
+
+        set
+        {
+            this.isLeft = value;
+        }
+    }
+
+    // Used to set whether the hand is trackable.
+    public bool IsTrackable
+    {
+        get
+        {
+            return this.isTrackable;
+        }
+
+        set
+        {
+            this.isTrackable = value;
+        }
+    }
     /// OLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 
     /* 
