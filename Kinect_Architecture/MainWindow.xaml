@@ -17,9 +17,9 @@
             <Button Canvas.Left="838" Canvas.Top="219" Content="Quit" Height="91" Name="quitButton" Width="137" FontSize="28" Background="#FFFF3838" Foreground="White" Click="quitButton_Click" />
             <Ellipse Name="rond" Stroke="GreenYellow" StrokeThickness="0" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Canvas.Left="192" Canvas.Top="60" Opacity="0.9" />
             <Image x:Name ="select" Height="100" Width="100" Canvas.Left="651" Canvas.Top="60" Source="Ressources/Images/play.png" RenderTransformOrigin="0.5,0.56" Visibility="Visible" />
-            <Canvas x:Name="StickMen" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1533" Canvas.Top="864"/>
+            <Canvas x:Name="StickMen" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1049" Canvas.Top="748"/>
             <TextBlock Text="{Binding Gesture}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontWeight="Bold" Canvas.Top="514" Width="3" Canvas.Left="1269"/>
-            <Rectangle x:Name="rectZoom"    Fill="Black" Height="10" Stroke="Black" Width="100" Canvas.Left="1230" Canvas.Top="500" Visibility="Hidden"/>
+           
         </Canvas>
 
     </Grid>

@@ -44,9 +44,6 @@ public class Curseur
         this.buttons = new List<System.Windows.Controls.Button> { button1, button2, quitButton };
 	}
 
-   
-
-    // NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 
     //track and display hand
     public void TrackHand(Joint hand, KinectSensor sensor)
@@ -54,12 +51,12 @@ public class Curseur
         float handX;
         float handY;
 
-       /* if (hand.TrackingState == JointTrackingState.NotTracked)
+        if (hand.TrackingState == JointTrackingState.NotTracked)
         {
             kinectButton.Visibility = System.Windows.Visibility.Collapsed;
         }
         else
-        {*/
+        {
             kinectButton.Visibility = System.Windows.Visibility.Visible;
 
             DepthImagePoint point = sensor.MapSkeletonPointToDepth(hand.Position, DepthImageFormat.Resolution640x480Fps30);
@@ -82,7 +79,7 @@ public class Curseur
                 kinectButton.ImageSource = "/Ressources/Images/LeftHand.png";
                 kinectButton.ActiveImageSource = "/Ressources/Images/LeftHand.png";
             }
-       // }
+       }
     }
 
     //detect if hand is overlapping over any button
@@ -220,7 +217,7 @@ public class Curseur
             return false;
         }
     }
-
+    */
     private static double ScaleY(Joint joint)
     {
         double y = ((SystemParameters.PrimaryScreenHeight / 0.4) * -joint.Position.Y) +
@@ -265,7 +262,7 @@ public class Curseur
         scaledY = (int)y;
     }
 
-   */
+   
     
 
 }

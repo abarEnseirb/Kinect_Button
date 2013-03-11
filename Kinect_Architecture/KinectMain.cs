@@ -121,15 +121,15 @@ namespace Kinect_Architecture
                         {
                             skeletonFocus = SkeletonManagementData[i].skeleton;
 
-                           /* if (skeletonFocus == null)
+                           if (skeletonFocus == null)
                             {
                                 this.curseur.kinectButton.Visibility = Visibility.Collapsed;
                             }
                             else
-                            {*/
+                            {
                                 Joint primaryHand = this.curseur.GetPrimaryHand(skeletonFocus);
                                 this.curseur.TrackHand(primaryHand,sensor);
-                            //}
+                            }
 
                             gestureCamera.OnGesture(SkeletonManagementData[i].skeleton);
 
