@@ -138,10 +138,11 @@ public class Curseur
                 selected = target;
 
                 // set the X and Y of the hand so it is centered over the button
+                /*
                 Point buttonCenter = new Point(targetTopLeft.X + target.Width/2 - kinectButton.Width/2, targetTopLeft.Y + target.Height/2 - kinectButton.Height/2);
                 this.currentX = (int)buttonCenter.X;
                 this.currentY = (int)buttonCenter.Y;
-               
+               */
                 return true;
             }
         }
@@ -220,7 +221,9 @@ public class Curseur
         scaledY = (int)y;
     }
 
-   
-    
-
+    // Event when kinectButton TimeInterval ends
+    public void kinectButton_Click(object sender, RoutedEventArgs e)
+    {
+        selected.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent, selected));
+    }
 }

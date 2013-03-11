@@ -33,7 +33,7 @@ namespace Kinect
         {
             InitializeComponent();
             kinect = new KinectMain(global, rond, kinectButton, button1, button2, quitButton);
-            kinectButton.Click += new RoutedEventHandler(kinectButton_Click);
+            kinectButton.Click += new RoutedEventHandler(this.kinect.curseur.kinectButton_Click);
             
         }
 
@@ -79,11 +79,6 @@ namespace Kinect
         //    return false;
 
         //}
-        public void kinectButton_Click(object sender, RoutedEventArgs e)
-        {
-            kinect.curseur.selected.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent, kinect.curseur.selected));
-        }
-
 
         public void button1_Click(object sender, RoutedEventArgs e)
         {
