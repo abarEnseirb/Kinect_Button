@@ -101,8 +101,8 @@ public class Curseur
         if (isHandOver(kinectButton, buttons))
         {
             kinectButton.Hovering();
-            this.timer.Interval = 800;
-            this.timer.Start();
+            //this.timer.Interval = 500;
+            //this.timer.Start();
             Canvas.SetLeft(kinectButton, currentX);
             Canvas.SetTop(kinectButton, currentY);
         }

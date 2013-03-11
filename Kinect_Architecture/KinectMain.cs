@@ -157,7 +157,19 @@ namespace Kinect_Architecture
 
             if (this.sensor.Status == KinectStatus.Connected)
             {
-                this.sensor.SkeletonStream.Enable();
+
+                var parameters = new TransformSmoothParameters
+                {
+                    Correction = 0.5f,
+                    Prediction = 0.5f,
+                    Smoothing = 0.05f,
+                    JitterRadius = 0.8f,
+                    MaxDeviationRadius = 0.2f
+                };
+
+                // Set the settings to the Kinect
+                this.sensor.SkeletonStream.Enable(parameters);
+                this.sensor.DepthStream.Enable();
                 this.sensor.SkeletonFrameReady += this.sensor_SkeletonFramesReady;
                 this.sensor.Start();
                 //sensor.ElevationAngle = Convert.ToInt32("10");
