@@ -21,6 +21,7 @@ using Fizbin.Kinect.Gestures;
 //using Microsoft.Samples.Kinect.WpfViewers;
 using Kinect_Architecture;
 using Coding4Fun.Kinect.Wpf.Controls;
+using System.Windows.Threading;
 
 
 public class Curseur
@@ -35,6 +36,9 @@ public class Curseur
 
     private bool isLeft;
     private bool isTrackable;
+    public Timer timer = new Timer();
+    public int currentX;
+    public int currentY;
 
 
 
@@ -45,8 +49,13 @@ public class Curseur
         this.imageButtons = new List<Image>();
         this.kinectButton = kinectButton;
         this.buttons = new List<System.Windows.Controls.Button> { button1, button2, quitButton };
+        this.timer.Enabled = false;
 	}
 
+    public void TimerStop(Object myObject, EventArgs myEventArgs)                                  
+    {
+        this.timer.Stop();
+    }
 
     //track and display hand
     public void TrackHand(KinectSensor sensor, Skeleton skeleton)
@@ -67,24 +76,36 @@ public class Curseur
             this.isTrackable = true;
             this.isLeft = true;
             kinectButton.Visibility = System.Windows.Visibility.Visible;
-            Canvas.SetLeft(kinectButton, leftX);
-            Canvas.SetTop(kinectButton, leftY);
+            currentX = leftX;
+            currentY = leftY;
         }
         else if (rightHandJoint.TrackingState == JointTrackingState.Tracked && rightY < SystemParameters.PrimaryScreenHeight)
         {
             this.isTrackable = true;
             this.isLeft = false;
             kinectButton.Visibility = System.Windows.Visibility.Visible;
-            Canvas.SetLeft(kinectButton, rightX);
-            Canvas.SetTop(kinectButton,rightY);
+            currentX = rightX;
+            currentY = rightY;
         }
         else
         {
             this.isTrackable = false;
             kinectButton.Visibility = System.Windows.Visibility.Collapsed;
+            currentX = -1;
+            currentY = -1;
         }
 
-        if (isHandOver(kinectButton, buttons)) kinectButton.Hovering();
+        Canvas.SetLeft(kinectButton, currentX);
+        Canvas.SetTop(kinectButton, currentY);
+
+        if (isHandOver(kinectButton, buttons))
+        {
+            kinectButton.Hovering();
+            this.timer.Interval = 800;
+            this.timer.Start();
+            Canvas.SetLeft(kinectButton, currentX);
+            Canvas.SetTop(kinectButton, currentY);
+        }
         else kinectButton.Release();
 
         if ((isTrackable) || (isLeft))
@@ -161,9 +182,9 @@ public class Curseur
 
                 // set the X and Y of the hand so it is centered over the button
                 Point buttonCenter = new Point(targetTopLeft.X + target.Width/2 - kinectButton.Width/2, targetTopLeft.Y + target.Height/2 - kinectButton.Height/2);
-                Canvas.SetLeft(kinectButton, buttonCenter.X);
-                Canvas.SetTop(kinectButton, buttonCenter.Y);
-              
+                this.currentX = (int)buttonCenter.X;
+                this.currentY = (int)buttonCenter.Y;
+               
                 return true;
             }
         }

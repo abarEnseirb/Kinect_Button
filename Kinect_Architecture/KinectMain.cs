@@ -128,7 +128,11 @@ namespace Kinect_Architecture
                             else
                             {
                                 //Joint primaryHand = this.curseur.GetPrimaryHand(skeletonFocus);
-                                this.curseur.TrackHand(sensor, skeletonFocus);
+                                this.curseur.timer.Tick += new EventHandler(this.curseur.TimerStop);
+                                if (!this.curseur.timer.Enabled)
+                                {
+                                    this.curseur.TrackHand(sensor, skeletonFocus);
+                                }
                             }
 
                             gestureCamera.OnGesture(SkeletonManagementData[i].skeleton);
