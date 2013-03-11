@@ -136,11 +136,7 @@ namespace Kinect_Architecture
                             }
 
                             gestureCamera.OnGesture(SkeletonManagementData[i].skeleton);
-
                             nearestId = SkeletonManagementData[i].skeleton.TrackingId;
-
-
-                            //curseur.SetCurseur(sensor, SkeletonManagementData[i].skeleton);
 
                            
                         }
