@@ -34,6 +34,8 @@ using Microsoft.Kinect;
              }
         }
 
+        public bool isGestureOn;
+
         /* This method initialises all the gestures needed in the special case */
         abstract public void InitGesture();
 

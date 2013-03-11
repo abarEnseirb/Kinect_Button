@@ -53,10 +53,23 @@ using System.Threading.Tasks;
             {
                 case "SwipeLeft":
                     gestureKind = "Swipe Left";
-                    Debug.WriteLine("Left");
+                    Console.WriteLine("Left");
+                    this.isGestureOn = true;
                     break;
                 case "SwipeRight":
                     gestureKind = "Swipe Right";
+                    Console.WriteLine("Right");
+                    this.isGestureOn = true;
+                    break;
+                case "SwipeUp":
+                    gestureKind = "Swipe Up";
+                    Console.WriteLine("Up");
+                    this.isGestureOn = true;
+                    break;
+                case "SwipeDown":
+                    gestureKind = "Swipe Down";
+                    Console.WriteLine("Down");
+                    this.isGestureOn = true;
                     break;
                 default:
                     //Debug.WriteLine("Recognized gesture not existing");

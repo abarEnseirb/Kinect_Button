@@ -18,6 +18,7 @@
             <Ellipse Name="rond" Stroke="GreenYellow" StrokeThickness="0" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Canvas.Left="192" Canvas.Top="60" Opacity="0.9" />
             <Image x:Name ="select" Height="100" Width="100" Canvas.Left="651" Canvas.Top="60" Source="Ressources/Images/play.png" RenderTransformOrigin="0.5,0.56" Visibility="Visible" />
             <Canvas x:Name="StickMen" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1049" Canvas.Top="748"/>
+            <Label Canvas.Left="38" Canvas.Top="524" Content="" Height="66" Name="message" Width="530" Foreground="White" FontSize="40" />
             <TextBlock Text="{Binding Gesture}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontWeight="Bold" Canvas.Top="514" Width="3" Canvas.Left="1269"/>
            
         </Canvas>

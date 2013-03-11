@@ -133,6 +133,11 @@ namespace Kinect_Architecture
                                 {
                                     this.curseur.TrackHand(sensor, skeletonFocus);
                                 }
+                                if (gestureCamera.isGestureOn)
+                                {
+                                    HighlightSkeleton(skeletonFocus);
+                                    gestureCamera.isGestureOn = false;
+                                }
                             }
 
                             gestureCamera.OnGesture(SkeletonManagementData[i].skeleton);
