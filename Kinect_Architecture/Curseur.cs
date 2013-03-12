@@ -29,6 +29,7 @@ public class Curseur
 
     private Grid global;
     private List<Image> imageButtons;
+    private Ellipse rond;
     public HoverButton kinectButton;
     public List<System.Windows.Controls.Button> buttons;
     public System.Windows.Controls.Button selected;
@@ -41,9 +42,10 @@ public class Curseur
 
 
 
-    public Curseur(Grid global, HoverButton kinectButton, System.Windows.Controls.Button button1, System.Windows.Controls.Button button2, System.Windows.Controls.Button quitButton)
+    public Curseur(Grid global, Ellipse rond, HoverButton kinectButton, System.Windows.Controls.Button button1, System.Windows.Controls.Button button2, System.Windows.Controls.Button quitButton)
 	{
         this.global = global;
+        this.rond = rond;
         this.imageButtons = new List<Image>();
         this.kinectButton = kinectButton;
         this.buttons = new List<System.Windows.Controls.Button> { button1, button2, quitButton };

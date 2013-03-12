@@ -22,9 +22,9 @@ namespace Kinect_Architecture
         private DateTime highlightTime;
         private int highlightId;
 
-        public KinectMain(Grid global, HoverButton kinectButton, Button button1, Button button2, Button quitButton)
+        public KinectMain(Grid global, Ellipse rond, HoverButton kinectButton, Button button1, Button button2, Button quitButton)
         {
-            curseur = new Curseur(global, kinectButton, button1, button2, quitButton);
+            curseur = new Curseur(global, rond, kinectButton, button1, button2, quitButton);
             gestureCamera = new GestureCamera();
             SkeletonManagementData = new SkeletonManagement[0];
             nearestId = -1;
