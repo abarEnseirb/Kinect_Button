@@ -96,7 +96,8 @@ public class Curseur
 
         if (isHandOver(kinectButton, buttons))
         {
-            if (NoInterval)
+            // if NoInterval, click the button now
+            if (NoInterval) 
             {
                 selected.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent, selected));
             }
@@ -140,21 +141,22 @@ public class Curseur
             {
                 selected = target;
 
-                if (target.HasContent)
-                {
-                    this.NoInterval = false;
-                }
-                else
+                // If the button has a content keep the KinectButton TimeInterval
+                if (target.Tag.Equals("NoInterval")) 
                 {
                     this.NoInterval = true;
                 }
+                else
+                {
+                    this.NoInterval = false;
 
-                // set the X and Y of the hand so it is centered over the button
-                /*
-                Point buttonCenter = new Point(targetTopLeft.X + target.Width/2 - kinectButton.Width/2, targetTopLeft.Y + target.Height/2 - kinectButton.Height/2);
-                this.currentX = (int)buttonCenter.X;
-                this.currentY = (int)buttonCenter.Y;
-               */
+                    // set the X and Y of the hand so it is centered over the button
+                    Point buttonCenter = new Point(targetTopLeft.X + target.Width/2 - kinectButton.Width/2, targetTopLeft.Y + target.Height/2 - kinectButton.Height/2);
+                    this.currentX = (int)buttonCenter.X;
+                    this.currentY = (int)buttonCenter.Y;
+                   
+                }
+
                 return true;
             }
         }

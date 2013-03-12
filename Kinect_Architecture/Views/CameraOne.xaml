@@ -13,18 +13,21 @@
             <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                        
                                 ImageSource="Ressources/Images/RightHand.png"  
                                 ActiveImageSource="Ressources/Images/RightHand.png" 
-                                TimeInterval="1000"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
-            <Button x:Name="buttonRight" Height="454" Canvas.Top="312" Width="225" Click="button_Right" Canvas.Left="1687"/>
-            <Button x:Name="buttonLeft" Height="454" Canvas.Top="312" Width="225" Click="button_Left" Canvas.Left="10"/>
-            <Button x:Name="buttonTop" Height="145" VerticalAlignment="Top" Width="1144" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_Top" Canvas.Left="385" Canvas.Top="10"/>
-            <Button x:Name="buttonTopLeft" Height="297" VerticalAlignment="Top" Width="370" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_TopLeft" Canvas.Left="10" Canvas.Top="10"/>
-            <Button x:Name="buttonTopRight" Height="297" VerticalAlignment="Top" Width="378" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_TopRight" Canvas.Left="1534" Canvas.Top="10"/>
-            <Button x:Name="buttonDown" Height="145" VerticalAlignment="Top" Width="1139" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_Down" Canvas.Left="385" Canvas.Top="925"/>
-            <Button x:Name="buttonDownLeft" Height="299" VerticalAlignment="Top" Width="370" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_DownLeft" Canvas.Left="10" Canvas.Top="771"/>
-            <Button x:Name="buttonDownRight" Height="299" VerticalAlignment="Top" Width="381" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_DownRight" Canvas.Left="1529" Canvas.Top="771"/>
+                                TimeInterval="2000"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
+            
+            <Button x:Name="buttonRight" Tag="NoInterval" Height="454" Canvas.Top="312" Width="225" Click="button_Right" Canvas.Left="1687"/>
+            <Button x:Name="buttonLeft" Tag="NoInterval" Height="454" Canvas.Top="312" Width="225" Click="button_Left" Canvas.Left="10"/>
+            <Button x:Name="buttonTop" Tag="NoInterval" Height="145" VerticalAlignment="Top" Width="1144" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_Top" Canvas.Left="385" Canvas.Top="10"/>
+            <Button x:Name="buttonTopLeft" Tag="NoInterval" Height="297" VerticalAlignment="Top" Width="370" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_TopLeft" Canvas.Left="10" Canvas.Top="10"/>
+            <Button x:Name="buttonTopRight" Tag="NoInterval" Height="297" VerticalAlignment="Top" Width="378" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_TopRight" Canvas.Left="1534" Canvas.Top="10"/>
+            <Button x:Name="buttonDown" Tag="NoInterval" Height="145" VerticalAlignment="Top" Width="1139" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_Down" Canvas.Left="385" Canvas.Top="925"/>
+            <Button x:Name="buttonDownLeft" Tag="NoInterval" Height="299" VerticalAlignment="Top" Width="370" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_DownLeft" Canvas.Left="10" Canvas.Top="771"/>
+            <Button x:Name="buttonDownRight" Tag="NoInterval" Height="299" VerticalAlignment="Top" Width="381" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="button_DownRight" Canvas.Left="1529" Canvas.Top="771"/>
+           
             <Canvas x:Name="StickMen" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1313" Canvas.Top="730"/>
             <Label Canvas.Left="711" Canvas.Top="689" Content="" Height="66" Name="message" Width="530" Foreground="Black" FontSize="40" Background="White" />
-            <Button Canvas.Left="1323" Canvas.Top="181" Content="Quit" Height="91" Name="quitButton" Width="137" FontSize="28" Background="#FFFF3838" Foreground="White" Click="quitButton_Click" />
+            <Button Name="quitButton" Tag="Interval" Canvas.Left="1323" Canvas.Top="181" Content="Quit" Height="91" Width="137" FontSize="28" Background="#FFFF3838" Foreground="White" Click="quitButton_Click" />
+       
         </Canvas>
     </Grid>
 </Page>

@@ -6,21 +6,29 @@
         WindowStyle="None" WindowState="Maximized"
         Title="Interface Kinect" Height="1080" Width="1920" >
 
-    
-    <Grid x:Name="global" Loaded="Window_Loaded">
-        <Canvas Name ="SkeletCanvas" Background="AliceBlue">
-            <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                        
+    <Grid x:Name="global" Loaded="Window_Loaded" >
+        <Grid.Background>
+            <ImageBrush ImageSource="Ressources/Images/background.png" />
+        </Grid.Background>
+        
+        <Canvas Name ="SkeletCanvas" RenderTransformOrigin="0.464,0.502">
+            <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="80"                                        
                                 ImageSource="Ressources/Images/RightHand.png"  
                                 ActiveImageSource="Ressources/Images/RightHand.png" 
-                                TimeInterval="0"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
-            <Button x:Name="button1" Content="Introduction" Height="78" Width="219" Canvas.Left="173" Canvas.Top="212" Background="#FF64C02F" FontSize="33.333" Click="button1_Click" BorderThickness="4" Foreground="White" />
-            <Button x:Name="button2" Content="Button2" Height="78" Width="241" Canvas.Left="702" Canvas.Top="212" Background="#FFFFF600" FontSize="33.333" Click="button2_Click" BorderThickness="4" Foreground="Black" />
-            <Image x:Name ="select" Height="100" Width="100" Canvas.Left="651" Canvas.Top="60" Source="Ressources/Images/play.png" RenderTransformOrigin="0.5,0.56" Visibility="Visible" />
-            <Canvas x:Name="StickMen" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1522" Canvas.Top="842"/>
-            <Label Canvas.Left="46" Canvas.Top="832" Content="" Height="66" Name="message" Width="530" Foreground="Black" FontSize="40" Background="White" />
-            <TextBlock Text="{Binding Gesture}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontWeight="Bold" Canvas.Top="514" Width="58" Canvas.Left="1269"/>
-            <Button Canvas.Left="1745" Canvas.Top="31" Content="Quit" Height="91" Name="quitButton" Width="137" FontSize="28" Background="#FFFF3838" Foreground="White" Click="quitButton_Click" />
- 
+                                TimeInterval="2000"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
+            
+            <Button x:Name="button1" Tag="Interval" Height="360" Width="360" Canvas.Left="807" Canvas.Top="406" Click="button1_Click" Background="#FF642FC0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Canvas x:Name="StickMen" Tag="Interval" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1522" Canvas.Top="842"/>
+            <Label Canvas.Left="22" Canvas.Top="977" Content="" Height="66" Name="message" Width="530" Foreground="White" FontSize="40" />
+            <Button Name="quitButton" Tag="Interval" Canvas.Left="1745" Canvas.Top="31" Height="91" Width="137" Click="quitButton_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="Ressources/Images/home.png" />
+                </Button.Background>
+            </Button>
+
+            <Grid>
+                <TextBlock Text="Start" IsHitTestVisible="False" Background="Transparent" Foreground="#F8FCFB" FontSize="75" FontFamily="Segoe UI" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="917,525,-917,-525" />
+            </Grid>
         </Canvas>
     </Grid>
 </Window>
