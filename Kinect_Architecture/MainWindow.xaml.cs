@@ -83,11 +83,13 @@ namespace Kinect
         public void button1_Click(object sender, RoutedEventArgs e)
         {
             System.Console.WriteLine("Bouton 1 clické");
+            message.Content = "Button 1 clicked!";
         }
 
         public void button2_Click(object sender, RoutedEventArgs e)
         {
             System.Console.WriteLine("Bouton 2 clické");
+            message.Content = "Button 2 clicked!";
         }
 
         public void quitButton_Click(object sender, RoutedEventArgs e)
