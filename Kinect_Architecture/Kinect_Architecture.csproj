@@ -68,9 +68,23 @@
     <Compile Include="Curseur.cs" />
     <Compile Include="Gesture.cs" />
     <Compile Include="GestureCamera.cs" />
+    <Compile Include="CameraOne.xaml.cs">
+      <DependentUpon>CameraOne.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KinectMain.cs" />
+    <Compile Include="Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SkeletonManagement.cs" />
     <Compile Include="Stickman.cs" />
+    <Page Include="CameraOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +134,9 @@
   <ItemGroup>
     <Resource Include="Ressources\Images\LeftHand.png" />
     <Resource Include="Ressources\Images\RightHand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
