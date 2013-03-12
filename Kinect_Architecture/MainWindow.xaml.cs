@@ -22,47 +22,7 @@ namespace Kinect_Architecture
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-<<<<<<< HEAD
 
-
-
-
-
-
-    // Methode pour un zoom/dezoom 'fluide'
-
-    //private bool ZoomDezoom(Skeleton skeleton)
-    //{
-
-    //    CoordinateMapper cmLeft = new CoordinateMapper(this.sensor);
-    //    CoordinateMapper cmRight = new CoordinateMapper(this.sensor);
-    //    ColorImagePoint Left = cmLeft.MapSkeletonPointToColorPoint(skeleton.Joints[JointType.HandLeft].Position, ColorImageFormat.RgbResolution1280x960Fps12);
-    //    ColorImagePoint Right = cmRight.MapSkeletonPointToColorPoint(skeleton.Joints[JointType.HandRight].Position, ColorImageFormat.RgbResolution1280x960Fps12);
-    //    // // Coordonnée en Z proche 
-    //    //  if ((skeleton.Joints[JointType.HandRight].Position.Z <= skeleton.Joints[JointType.HandLeft].Position.Z + 1 && skeleton.Joints[JointType.HandRight].Position.Z >= skeleton.Joints[JointType.HandLeft].Position.Z - 1))
-    //    //  {
-    //    // Coordonnée en Y proche 
-    //    if ((Right.Y <= Left.Y + 40 && Right.Y >= Left.Y - 40)) // rajouté une condition sur la position par rapport au corps
-    //    {
-    //        // Coordonnée en X 'centré'
-    //        if (Right.X - 1280 / 2 < 1280 / 2 - Left.X + 40 && Right.X - 1280 / 2 > 1280 / 2 - Left.X - 40)
-    //        {
-    //            xZoomL = Left.X;
-    //            xZoomR = Right.X;
-
-    //            Canvas.SetLeft(rectZoom, 2 * Left.X);
-    //            rectZoom.Width = 2 * Right.X - 2 * Left.X;
-    //            return true;
-    //        }
-
-    //    }
-
-    //    xZoomL = -1;
-    //    xZoomR = -1;
-    //    return false;
-
-    //}
-=======
     public partial class MainWindow : Window
     {
 
@@ -73,7 +33,7 @@ namespace Kinect_Architecture
         public MainWindow()
         {
             InitializeComponent();
-            kinect = new KinectMain(global, rond, kinectButton, button1, button2, quitButton);
+            kinect = new KinectMain(global, kinectButton, button1, button2, quitButton);
             kinectButton.Click += new RoutedEventHandler(this.kinect.curseur.kinectButton_Click);
             
         }
@@ -138,5 +98,4 @@ namespace Kinect_Architecture
             System.Windows.Application.Current.Shutdown();
         }
     }
->>>>>>> parent of 8722ffe... nettoyage (delete Ellipse rond)
 }

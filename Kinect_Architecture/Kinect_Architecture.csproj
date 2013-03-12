@@ -68,23 +68,9 @@
     <Compile Include="Curseur.cs" />
     <Compile Include="Gesture.cs" />
     <Compile Include="GestureCamera.cs" />
-    <Compile Include="CameraOne.xaml.cs">
-      <DependentUpon>CameraOne.xaml</DependentUpon>
-    </Compile>
     <Compile Include="KinectMain.cs" />
-    <Compile Include="Main.xaml.cs">
-      <DependentUpon>Main.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SkeletonManagement.cs" />
     <Compile Include="Stickman.cs" />
-    <Page Include="CameraOne.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Main.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
