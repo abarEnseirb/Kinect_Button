@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows;
+using System.Collections.Generic;
 using Coding4Fun.Kinect.Wpf.Controls;
 
 
@@ -22,9 +23,9 @@ namespace Kinect_Architecture
         private DateTime highlightTime;
         private int highlightId;
 
-        public KinectMain(Grid global, HoverButton kinectButton, Button button1, Button button2, Button quitButton)
+        public KinectMain(Grid global, HoverButton kinectButton, List<Button> buttons)
         {
-            curseur = new Curseur(global, kinectButton, button1, button2, quitButton);
+            curseur = new Curseur(global, kinectButton, buttons);
             gestureCamera = new GestureCamera();
             SkeletonManagementData = new SkeletonManagement[0];
             nearestId = -1;

@@ -35,15 +35,16 @@ public class Curseur
     public Timer timer = new Timer();
     public int currentX;
     public int currentY;
+    private bool NoInterval;
 
 
 
-    public Curseur(Grid global, HoverButton kinectButton, System.Windows.Controls.Button button1, System.Windows.Controls.Button button2, System.Windows.Controls.Button quitButton)
+    public Curseur(Grid global, HoverButton kinectButton, List<System.Windows.Controls.Button> buttons)
 	{
         this.global = global;
         this.imageButtons = new List<Image>();
         this.kinectButton = kinectButton;
-        this.buttons = new List<System.Windows.Controls.Button> { button1, button2, quitButton };
+        this.buttons = buttons;
         this.timer.Enabled = false;
 	}
 
@@ -95,11 +96,18 @@ public class Curseur
 
         if (isHandOver(kinectButton, buttons))
         {
-            kinectButton.Hovering();
-            //this.timer.Interval = 500;
-            //this.timer.Start();
-            Canvas.SetLeft(kinectButton, currentX);
-            Canvas.SetTop(kinectButton, currentY);
+            if (NoInterval)
+            {
+                selected.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent, selected));
+            }
+            else
+            {
+                 kinectButton.Hovering();
+                //this.timer.Interval = 500;
+                //this.timer.Start();
+                Canvas.SetLeft(kinectButton, currentX);
+                Canvas.SetTop(kinectButton, currentY);
+            }
         }
         else kinectButton.Release();
 
@@ -131,6 +139,15 @@ public class Curseur
                 handY < targetTopLeft.Y + target.Height)
             {
                 selected = target;
+
+                if (target.HasContent)
+                {
+                    this.NoInterval = false;
+                }
+                else
+                {
+                    this.NoInterval = true;
+                }
 
                 // set the X and Y of the hand so it is centered over the button
                 /*
