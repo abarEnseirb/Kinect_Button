@@ -29,6 +29,13 @@ public class Curseur
     public HoverButton kinectButton;
     public List<System.Windows.Controls.Button> buttons;
     public System.Windows.Controls.Button selected;
+    public System.Windows.Controls.Button lastSelected;
+
+    private int lastSelectedLeft;
+    private int lastSelectedRight;
+    private int lastSelectedTop;
+    private int lastSelectedDown;
+
 
     private bool isLeft;
     private bool isTrackable;
@@ -46,6 +53,11 @@ public class Curseur
         this.kinectButton = kinectButton;
         this.buttons = buttons;
         this.timer.Enabled = false;
+
+        this.lastSelectedDown = 0;
+        this.lastSelectedTop = 0;
+        this.lastSelectedLeft = 0;
+        this.lastSelectedRight = 0;
 	}
 
     public void TimerStop(Object myObject, EventArgs myEventArgs)                                  
@@ -94,23 +106,41 @@ public class Curseur
         Canvas.SetLeft(kinectButton, currentX);
         Canvas.SetTop(kinectButton, currentY);
 
-        if (isHandOver(kinectButton, buttons))
+        if (!(currentX > lastSelectedLeft &&
+             currentX < lastSelectedRight &&
+             currentY > lastSelectedTop &&
+             currentY < lastSelectedDown))
         {
-            // if NoInterval, click the button now
-            if (NoInterval) 
+
+            if (isHandOver(kinectButton, buttons))
             {
-                selected.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent, selected));
+                // if NoInterval, click the button now
+                if (NoInterval)
+                {
+                    selected.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent, selected));
+                }
+                else
+                {
+                    kinectButton.Hovering();
+
+                    //this.timer.Interval = 500;
+                    //this.timer.Start();
+
+                    // Pour magnétisme
+                    //Canvas.SetLeft(kinectButton, currentX);
+                    //Canvas.SetTop(kinectButton, currentY);
+                }
             }
             else
             {
-                 kinectButton.Hovering();
-                //this.timer.Interval = 500;
-                //this.timer.Start();
-                Canvas.SetLeft(kinectButton, currentX);
-                Canvas.SetTop(kinectButton, currentY);
+                kinectButton.Release();
             }
         }
-        else kinectButton.Release();
+        else
+        {
+            kinectButton.Hovering();
+        }
+
 
         if ((isTrackable) || (isLeft))
         {
@@ -140,6 +170,11 @@ public class Curseur
                 handY < targetTopLeft.Y + target.Height)
             {
                 selected = target;
+                lastSelected = selected;
+                lastSelectedDown = (int)(targetTopLeft.Y + target.Height);
+                lastSelectedTop = (int)targetTopLeft.Y;
+                lastSelectedLeft = (int)targetTopLeft.X;
+                lastSelectedRight = (int)(targetTopLeft.X + target.Width);
 
                 // If the button has a content keep the KinectButton TimeInterval
                 if (target.Tag.Equals("NoInterval")) 
@@ -150,10 +185,12 @@ public class Curseur
                 {
                     this.NoInterval = false;
 
-                    // set the X and Y of the hand so it is centered over the button
+                    // set the X and Y of the hand so it is centered over the button (Pour magnétisme)
+                    /*
                     Point buttonCenter = new Point(targetTopLeft.X + target.Width/2 - kinectButton.Width/2, targetTopLeft.Y + target.Height/2 - kinectButton.Height/2);
                     this.currentX = (int)buttonCenter.X;
                     this.currentY = (int)buttonCenter.Y;
+                     */
                    
                 }
 

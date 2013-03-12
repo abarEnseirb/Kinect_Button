@@ -17,18 +17,16 @@
                                 ActiveImageSource="Ressources/Images/RightHand.png" 
                                 TimeInterval="2000"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
             
-            <Button x:Name="button1" Tag="Interval" Height="360" Width="360" Canvas.Left="807" Canvas.Top="406" Click="button1_Click" Background="#FF642FC0" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <Canvas x:Name="StickMen" Tag="Interval" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1522" Canvas.Top="842"/>
-            <Label Canvas.Left="22" Canvas.Top="977" Content="" Height="66" Name="message" Width="530" Foreground="White" FontSize="40" />
-            <Button Name="quitButton" Tag="Interval" Canvas.Left="1745" Canvas.Top="31" Height="91" Width="137" Click="quitButton_Click" >
+            <Button x:Name="button1" Tag="Interval" Height="360" Width="360" Canvas.Left="805" Canvas.Top="386" Click="button1_Click" Background="#FF642FC0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button Name="quitButton" Tag="Interval" Canvas.Left="1745" Canvas.Top="31" Height="91" Width="137" Click="quitButton_Click" BorderBrush="{x:Null}" >
                 <Button.Background>
-                    <ImageBrush ImageSource="Ressources/Images/home.png" />
+                    <ImageBrush ImageSource="Ressources/Images/shutdown.png" />
                 </Button.Background>
             </Button>
 
-            <Grid>
-                <TextBlock Text="Start" IsHitTestVisible="False" Background="Transparent" Foreground="#F8FCFB" FontSize="75" FontFamily="Segoe UI" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="917,525,-917,-525" />
-            </Grid>
+            <Canvas x:Name="StickMen" Tag="Interval" Width="249" Height="195" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1522" Canvas.Top="842"/>
+            <TextBlock Text="Start" IsHitTestVisible="False" Background="Transparent" Foreground="#F8FCFB" FontSize="75" FontFamily="Segoe UI" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="911,509,-911,-509" />
+            <TextBlock x:Name="Instruction" IsHitTestVisible="False" Background="Transparent" Foreground="#FF642FC0" FontSize="55" FontFamily="Segoe UI" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="582" Canvas.Top="215" />
         </Canvas>
     </Grid>
 </Window>

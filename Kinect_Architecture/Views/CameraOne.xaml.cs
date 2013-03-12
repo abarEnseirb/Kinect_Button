@@ -29,7 +29,7 @@ namespace Kinect_Architecture.Views
         public CameraOne()
         {
             InitializeComponent();
-            this.buttons = new List<System.Windows.Controls.Button> { quitButton, buttonDown, buttonDownLeft, buttonDownRight, buttonLeft, buttonRight, buttonTop, buttonTopLeft, buttonTopRight };
+            this.buttons = new List<System.Windows.Controls.Button> { quitButton, buttonDown, buttonDownLeft, buttonDownRight, buttonLeft, buttonRight, buttonTop, buttonTopLeft, buttonTopRight, buttonMenu };
             kinect = new KinectMain(CameraOneGrid, kinectButton, buttons);
             kinectButton.Click += new RoutedEventHandler(this.kinect.curseur.kinectButton_Click);
         }
@@ -91,6 +91,12 @@ namespace Kinect_Architecture.Views
         public void quitButton_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        public void button_Menu(object sender, RoutedEventArgs e)
+        {
+            MainWindow MenuPage = new MainWindow();
+            this.Content = MenuPage;
         }
     }
 }

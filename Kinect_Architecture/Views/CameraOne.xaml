@@ -9,7 +9,10 @@
 	Title="CameraOne">
 
     <Grid x:Name="CameraOneGrid" Loaded="CameraOne_Window_Loaded">
-        <Canvas Name ="CameraOneCanvas" Background="AliceBlue">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Ressources/Images/background.png" />
+        </Grid.Background>
+        <Canvas Name ="CameraOneCanvas">
             <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                        
                                 ImageSource="Ressources/Images/RightHand.png"  
                                 ActiveImageSource="Ressources/Images/RightHand.png" 
@@ -26,8 +29,16 @@
            
             <Canvas x:Name="StickMen" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1313" Canvas.Top="730"/>
             <Label Canvas.Left="711" Canvas.Top="689" Content="" Height="66" Name="message" Width="530" Foreground="Black" FontSize="40" Background="White" />
-            <Button Name="quitButton" Tag="Interval" Canvas.Left="1323" Canvas.Top="181" Content="Quit" Height="91" Width="137" FontSize="28" Background="#FFFF3838" Foreground="White" Click="quitButton_Click" />
-       
+            <Button Name="quitButton" Tag="Interval" Canvas.Left="1376" Canvas.Top="174" Height="91" Width="137" Click="quitButton_Click" BorderBrush="{x:Null}" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Ressources/Images/shutdown.png" />
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonMenu" Tag="Interval" Canvas.Left="414" Canvas.Top="174" Height="91" Width="137" Click="button_Menu" BorderBrush="{x:Null}" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Ressources/Images/home.png" />
+                </Button.Background>
+            </Button>
         </Canvas>
     </Grid>
 </Page>

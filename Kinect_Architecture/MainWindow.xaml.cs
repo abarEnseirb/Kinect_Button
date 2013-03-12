@@ -33,6 +33,8 @@ namespace Kinect_Architecture
         public MainWindow()
         {
             InitializeComponent();
+            Instruction.Text = "Hold your hand over the start button";
+
             this.buttons = new List<System.Windows.Controls.Button> { button1, quitButton };
             kinect = new KinectMain(global, kinectButton, buttons);
             kinectButton.Click += new RoutedEventHandler(this.kinect.curseur.kinectButton_Click);
@@ -84,8 +86,6 @@ namespace Kinect_Architecture
 
         public void button1_Click(object sender, RoutedEventArgs e)
         {
-            System.Console.WriteLine("Bouton 1 clické");
-            message.Content = "Button 1 clicked!";
             Views.CameraOne CameraPage = new Views.CameraOne();
             this.Content = CameraPage;
         }
