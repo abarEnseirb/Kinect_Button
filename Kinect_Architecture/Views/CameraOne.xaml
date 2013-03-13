@@ -13,8 +13,8 @@
         </Grid.Background>
         <Canvas Name ="CameraOneCanvas">
             <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                        
-                                ImageSource="Ressources/Images/RightHand.png"  
-                                ActiveImageSource="Ressources/Images/RightHand.png" 
+                                ImageSource="/Ressources/Images/RightHand.png"  
+                                ActiveImageSource="/Ressources/Images/RightHand.png" 
                                 TimeInterval="2000"  Panel.ZIndex="1000" Canvas.Left="0" Canvas.Top="0" />
             
             <Button x:Name="buttonRight" Tag="NoInterval" Height="454" Canvas.Top="312" Width="225" Click="button_Right" Canvas.Left="1687"/>

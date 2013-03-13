@@ -34,7 +34,7 @@ namespace Kinect_Architecture.Views
         }
 
         ////When the window is loaded
-        private void CameraOne_Window_Loaded(Object sender, RoutedEventArgs e)
+        private void Menu_Window_Loaded(Object sender, RoutedEventArgs e)
         {
             kinect.InitKinect(StickMen);
         }
