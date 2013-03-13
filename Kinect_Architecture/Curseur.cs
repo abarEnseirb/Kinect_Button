@@ -38,10 +38,6 @@ public class Curseur
     public int currentY;
     private bool NoInterval;
 
-    private Storyboard expandStoryboard;
-    private Storyboard ringStoryboard;
-
-
     public Curseur(Grid global, HoverButton kinectButton, List<System.Windows.Controls.Button> buttons)
     {
         this.global = global;
@@ -121,13 +117,13 @@ public class Curseur
         {
             kinectButton.Release();
         }
-        
+
         if ((isTrackable) && (isLeft))
         {
             kinectButton.ImageSource = "/Ressources/Images/LeftHand.png";
             kinectButton.ActiveImageSource = "/Ressources/Images/LeftHand.png";
         }
-        else if (isTrackable)
+        else if ((isTrackable) && !(isLeft))
         {
             kinectButton.ImageSource = "/Ressources/Images/RightHand.png";
             kinectButton.ActiveImageSource = "/Ressources/Images/RightHand.png";

@@ -32,11 +32,9 @@ namespace Kinect_Architecture
         {
             InitializeComponent();
             Instruction.Text = "Hold your hand over the start button";
-
             this.buttons = new List<System.Windows.Controls.Button> { buttonStart, quitButton };
             kinect = new KinectMain(global, kinectButton, buttons);
             kinectButton.Click += new RoutedEventHandler(this.kinect.curseur.kinectButton_Click);
-            
         }
 
 
