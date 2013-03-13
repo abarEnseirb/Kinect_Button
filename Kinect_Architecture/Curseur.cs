@@ -19,6 +19,7 @@ using Fizbin.Kinect.Gestures;
 using Kinect_Architecture;
 using Coding4Fun.Kinect.Wpf.Controls;
 using System.Windows.Threading;
+using System.Windows.Media.Animation;
 
 
 public class Curseur
@@ -37,6 +38,8 @@ public class Curseur
     public int currentY;
     private bool NoInterval;
 
+    private Storyboard expandStoryboard;
+    private Storyboard ringStoryboard;
 
 
     public Curseur(Grid global, HoverButton kinectButton, List<System.Windows.Controls.Button> buttons)
@@ -53,6 +56,7 @@ public class Curseur
         this.timer.Stop();
     }
 
+
     //track and display hand
     public void TrackHand(KinectSensor sensor, Skeleton skeleton)
     {
@@ -64,8 +68,8 @@ public class Curseur
         float leftZ = leftHandJoint.Position.Z;
         float rightZ = rightHandJoint.Position.Z;
 
-        ScaleXY(skeleton.Joints[JointType.ShoulderCenter], false, leftHandJoint, out leftX, out leftY);
-        ScaleXY(skeleton.Joints[JointType.ShoulderCenter], true, rightHandJoint, out rightX, out rightY);
+        ScaleXY(skeleton, false, leftHandJoint, out leftX, out leftY);
+        ScaleXY(skeleton, true, rightHandJoint, out rightX, out rightY);
 
         if (leftHandJoint.TrackingState == JointTrackingState.Tracked && leftZ < rightZ && leftY < SystemParameters.PrimaryScreenHeight)
         {
@@ -93,7 +97,7 @@ public class Curseur
 
         Canvas.SetLeft(kinectButton, currentX);
         Canvas.SetTop(kinectButton, currentY);
-
+        
         if (isHandOver(kinectButton, buttons))
         {
             // if NoInterval, click the button now
@@ -117,7 +121,7 @@ public class Curseur
         {
             kinectButton.Release();
         }
-
+        
         if ((isTrackable) && (isLeft))
         {
             kinectButton.ImageSource = "/Ressources/Images/LeftHand.png";
@@ -206,8 +210,10 @@ public class Curseur
         return y;
     }
 
-    private static void ScaleXY(Joint shoulderCenter, bool rightHand, Joint joint, out int scaledX, out int scaledY)
+    private static void ScaleXY(Skeleton skeleton, bool rightHand, Joint joint, out int scaledX, out int scaledY)
     {
+
+        
         double screenWidth = SystemParameters.PrimaryScreenWidth;
 
         double x = 0;
@@ -217,11 +223,11 @@ public class Curseur
         // else place shouldCenter on right of screen
         if (rightHand)
         {
-            x = (joint.Position.X - shoulderCenter.Position.X) * screenWidth * 2;
+            x = (joint.Position.X - skeleton.Joints[JointType.HipCenter].Position.X) * screenWidth * 2;
         }
         else
         {
-            x = screenWidth - ((shoulderCenter.Position.X - joint.Position.X) * (screenWidth * 2));
+            x = screenWidth - ((skeleton.Joints[JointType.HipCenter].Position.X - joint.Position.X) * (screenWidth * 2));
         }
 
 

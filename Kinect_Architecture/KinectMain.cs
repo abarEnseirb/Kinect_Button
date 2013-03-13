@@ -31,8 +31,8 @@ namespace Kinect_Architecture
             nearestId = -1;
             highlightId = -1;
             highlightTime = DateTime.MinValue;
-            
-        
+
+
         }
 
         private void HighlightSkeleton(Skeleton skeleton)
@@ -122,7 +122,7 @@ namespace Kinect_Architecture
                         {
                             skeletonFocus = SkeletonManagementData[i].skeleton;
 
-                           if (skeletonFocus == null)
+                            if (skeletonFocus == null)
                             {
                                 this.curseur.kinectButton.Visibility = Visibility.Collapsed;
                             }
@@ -144,15 +144,15 @@ namespace Kinect_Architecture
                             gestureCamera.OnGesture(SkeletonManagementData[i].skeleton);
                             nearestId = SkeletonManagementData[i].skeleton.TrackingId;
 
-                           
+
                         }
                     }
                 }
             }
         }
-    
 
-            //When your window is loaded
+
+        //When your window is loaded
         public void InitKinect(Canvas stickMen)
         {
             this.sensor = KinectSensor.KinectSensors[0];
@@ -162,11 +162,16 @@ namespace Kinect_Architecture
 
                 var parameters = new TransformSmoothParameters
                 {
-                    Correction = 0.5f,
+                    /*Correction = 0.5f,
                     Prediction = 0.5f,
                     Smoothing = 0.05f,
                     JitterRadius = 0.8f,
-                    MaxDeviationRadius = 0.2f
+                    MaxDeviationRadius = 0.2f*/
+                    Smoothing = 0.5f,
+                    Correction = 0.5f,
+                    Prediction = 0.5f,
+                    JitterRadius = 0.8f,
+                    MaxDeviationRadius = 0.8f
                 };
 
                 // Set the settings to the Kinect
