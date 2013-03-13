@@ -1,11 +1,9 @@
 ﻿using System;
 using Kinect_Architecture;
 using System.Windows;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -23,7 +21,7 @@ namespace Kinect_Architecture
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
 
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window    
     {
 
         /* Variables */
@@ -35,7 +33,7 @@ namespace Kinect_Architecture
             InitializeComponent();
             Instruction.Text = "Hold your hand over the start button";
 
-            this.buttons = new List<System.Windows.Controls.Button> { button1, quitButton };
+            this.buttons = new List<System.Windows.Controls.Button> { buttonStart, quitButton };
             kinect = new KinectMain(global, kinectButton, buttons);
             kinectButton.Click += new RoutedEventHandler(this.kinect.curseur.kinectButton_Click);
             
@@ -84,10 +82,10 @@ namespace Kinect_Architecture
 
         //}
 
-        public void button1_Click(object sender, RoutedEventArgs e)
+        public void button_Start(object sender, RoutedEventArgs e)
         {
-            Views.CameraOne CameraPage = new Views.CameraOne();
-            this.Content = CameraPage;
+            Views.Menu MenuPage = new Views.Menu();
+            this.Content = MenuPage;
         }
 
         public void quitButton_Click(object sender, RoutedEventArgs e)

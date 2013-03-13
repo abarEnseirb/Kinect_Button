@@ -19,7 +19,7 @@ namespace Kinect_Architecture.Views
     /// <summary>
     /// Logique d'interaction pour CameraOne.xaml
     /// </summary>
-    public partial class CameraOne : Page
+    public partial class CameraOne : UserControl
     {
 
         /* Variables */
@@ -95,7 +95,7 @@ namespace Kinect_Architecture.Views
 
         public void button_Menu(object sender, RoutedEventArgs e)
         {
-            MainWindow MenuPage = new MainWindow();
+            Views.Menu MenuPage = new Views.Menu();
             this.Content = MenuPage;
         }
     }
