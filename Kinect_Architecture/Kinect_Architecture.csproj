@@ -40,6 +40,9 @@
     <Reference Include="Fizbin.Kinect.Gestures">
       <HintPath>\\I007-01-PC\Users\I007-01\Documents\Projet S8 - 2013\Code demo kinect\Fizbin\Fizbin.Kinect.Gestures-master\Fizbin.Kinect.Gestures\bin\Debug\Fizbin.Kinect.Gestures.dll</HintPath>
     </Reference>
+    <Reference Include="ManagedUPnP">
+      <HintPath>..\..\CameraFinal_v2\CameraFinal\bin\Debug\ManagedUPnP.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Kinect, Version=1.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Kinect.Toolkit">
       <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.6.0\Samples\bin\Microsoft.Kinect.Toolkit.dll</HintPath>
@@ -55,6 +58,15 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core">
+      <HintPath>..\..\CameraFinal_v2\CameraFinal\bin\Debug\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops">
+      <HintPath>..\..\CameraFinal_v2\CameraFinal\bin\Debug\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Wpf">
+      <HintPath>..\..\CameraFinal_v2\CameraFinal\bin\Debug\Vlc.DotNet.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -141,6 +153,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\Images\shutdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CameraFinal_v2\CameraFinal\CameraFinal.csproj">
+      <Project>{0e8b4be6-9f37-44ca-b217-ddaf5c48b20b}</Project>
+      <Name>CameraFinal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\choose.png" />
+    <Resource Include="Ressources\Images\next.png" />
+    <Resource Include="Ressources\Images\previous.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

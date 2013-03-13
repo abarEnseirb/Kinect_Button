@@ -136,7 +136,7 @@ public class Curseur
         var handTopLeft = new Point(Canvas.GetLeft(hand), Canvas.GetTop(hand));
         var handX = handTopLeft.X + hand.ActualWidth / 2;
         var handY = handTopLeft.Y + hand.ActualHeight / 2;
-
+       
         foreach (System.Windows.Controls.Button target in buttonslist)
         {
             Point targetTopLeft = new Point(Canvas.GetLeft(target), Canvas.GetTop(target));
@@ -146,7 +146,7 @@ public class Curseur
                 handY < targetTopLeft.Y + target.Height)
             {
                 selected = target;
-
+                
                 // If the button has a content keep the KinectButton TimeInterval
                 if (target.Tag.Equals("NoInterval"))
                 {
