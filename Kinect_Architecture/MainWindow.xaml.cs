@@ -24,7 +24,7 @@ namespace Kinect_Architecture
     public partial class MainWindow : Window    
     {
 
-        /* Variables */
+       /* Variables */
         private KinectMain kinect;
         public List<Button> buttons;
 
@@ -43,6 +43,20 @@ namespace Kinect_Architecture
         private void Window_Loaded(Object sender, RoutedEventArgs e)
         {
             kinect.InitKinect(StickMen);
+
+            // get the main screen size
+            double height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double width = System.Windows.SystemParameters.PrimaryScreenWidth;
+
+            // if the main screen is not 1920 x 1080 then warn the user it is not the optimal experience 
+            if (width != 1920 || height != 1080)
+            {
+                MessageBoxResult continueResult = MessageBox.Show("This screen is not 1920 x 1080.\nThis sample has been optimized for a screen resolution of 1920 x 1080.\nDo you wish to continue?", "Suboptimal Screen Resolution", MessageBoxButton.YesNo);
+                if (continueResult == MessageBoxResult.No)
+                {
+                    this.Close();
+                }
+            }
         }
 
 

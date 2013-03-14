@@ -66,21 +66,21 @@ namespace Kinect_Architecture.Views
         {
             System.Console.WriteLine("Button Right");
             message.Content = "Button Right";
-            cameraOne.goRight();
+            //cameraOne.goRight();
         }
 
         public void button_Left(object sender, RoutedEventArgs e)
         {
             System.Console.WriteLine("Button Left");
             message.Content = "Button Left";
-            cameraOne.goLeft();
+            //cameraOne.goLeft();
         }
 
         public void button_Top(object sender, RoutedEventArgs e)
         {
             System.Console.WriteLine("Button Top");
             message.Content = "Button Top";
-            cameraOne.goUp();
+            //cameraOne.goUp();
         }
 
         public void button_TopLeft(object sender, RoutedEventArgs e)
@@ -99,7 +99,7 @@ namespace Kinect_Architecture.Views
         {
             System.Console.WriteLine("Button Down");
             message.Content = "Button Down";
-            cameraOne.goDown();
+            //cameraOne.goDown();
         }
 
         public void button_DownRight(object sender, RoutedEventArgs e)
@@ -121,8 +121,8 @@ namespace Kinect_Architecture.Views
 
         public void button_Menu(object sender, RoutedEventArgs e)
         {
-            Views.Menu MenuPage = new Views.Menu();
-            this.Content = MenuPage;
+            /*Views.Menu MenuPage = new Views.Menu();
+            this.Content = MenuPage;*/
         }
 
         private void button_Screenshot(object sender, RoutedEventArgs e)

@@ -28,25 +28,23 @@ namespace Kinect_Architecture.Views
         private KinectMain kinect;
         public List<Button> buttons;
         private static Camera[] cameraArray = new Camera[3];
-
-        private int coverflowId;
     
         public Menu()
         {
             InitializeComponent();
-            this.buttons = new List<System.Windows.Controls.Button> { buttonChoose, buttonNext, buttonPrevious };
+            Instruction.Text = "Select a CCTV";
+            this.buttons = new List<System.Windows.Controls.Button> { buttonOne, buttonTwo, buttonThree };
             kinect = new KinectMain(MenuGrid, kinectButton, buttons);
             kinectButton.Click += new RoutedEventHandler(this.kinect.curseur.kinectButton_Click);
 
-            cameraArray[0] = new CameraPTZ(new VlcControl(), player0);
-            cameraArray[1] = new CameraSTD(new VlcControl(), player1);
-            cameraArray[2] = new CameraSTD(new VlcControl(), player2);
+            cameraArray[0] = new CameraPTZ(new VlcControl(), cameraOne);
+            cameraArray[1] = new CameraSTD(new VlcControl(), cameraTwo);
+            cameraArray[2] = new CameraSTD(new VlcControl(), cameraThree);
 
             Discovery disc = new Discovery(null, AddressFamilyFlags.IPv4, false);
             disc.DeviceAdded += new DeviceAddedEventHandler(discDeviceAdded);
             disc.Start();
 
-            this.coverflowId = 312;
         }
 
         ////When the window is loaded
@@ -79,75 +77,21 @@ namespace Kinect_Architecture.Views
         }
 
 
-        public void button_Choose(object sender, RoutedEventArgs e)
+        public void button_One(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        public void button_Two(object sender, RoutedEventArgs e)
         {
             Views.CameraOne CameraOnePage = new Views.CameraOne();
             this.Content = CameraOnePage;
         }
 
-        public void button_Next(object sender, RoutedEventArgs e)
+        public void button_Three(object sender, RoutedEventArgs e)
         {
-            increaseCoverflowId();
-            setCoverflowProperties();
+            
         }
 
-        public void button_Previous(object sender, RoutedEventArgs e)
-        {
-            decreaseCoverflowId();
-            setCoverflowProperties();
-        }
-
-        private void selectPlayer(Border border)
-        {
-            //border.Background = "AliceBlue";
-        }
-
-        private void setCoverflowProperties()
-        {
-            switch (coverflowId)
-            {
-                case 123:
-                    selectPlayer(playerThree);
-                    break;
-                case 231:
-                    selectPlayer(playerOne);
-                    break;
-                case 312:
-                    selectPlayer(playerTwo);
-                    break;
-            }
-        }
-
-        private void increaseCoverflowId()
-        {
-            switch (coverflowId)
-            {
-                case 123:
-                    selectPlayer(playerOne);
-                    break;
-                case 312:
-                    selectPlayer(playerThree);
-                    break;
-                case 231:
-                    selectPlayer(playerTwo);
-                    break;
-            }
-        }
-
-        private void decreaseCoverflowId()
-        {
-            switch (coverflowId)
-            {
-                case 123:
-                    coverflowId = 231;
-                    break;
-                case 312:
-                    coverflowId = 123;
-                    break;
-                case 231:
-                    coverflowId = 312;
-                    break;
-            }
-        }
     }
 }

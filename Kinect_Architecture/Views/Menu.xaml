@@ -11,39 +11,33 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Ressources/Images/background.png" />
         </Grid.Background>
-        
+        <Image x:Name= "cameraOne" Height="354" Width="507" VerticalAlignment="Bottom" Margin="0,0,0,215" />
+        <Image x:Name= "cameraTwo" Height="354" Width="507" Canvas.Left="202" Canvas.Top="138" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,100,0,0" />
+        <Image x:Name= "cameraThree" Height="354" Width="507" Canvas.Left="1222" Canvas.Top="138" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,100,100,0" />
+        <TextBlock x:Name="Instruction" Background="Transparent" Foreground="#FF9F2FC0" FontSize="75" FontWeight="Light" FontFamily="Segoe UI" Margin="0,175,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+
         <Canvas Name ="MenuCanvas" Loaded="Menu_Window_Loaded" VerticalAlignment="Center" Width="1920" Height="1080" >
-            <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="50"                                        
+            <Controls:HoverButton Margin="0" Padding="0" x:Name="kinectButton" ImageSize="80"                                        
                                 ImageSource="/Ressources/Images/RightHand.png"  
                                 ActiveImageSource="/Ressources/Images/RightHand.png" 
                                 TimeInterval="2000"  Panel.ZIndex="1000" />
-            <Border x:Name="playerOne" BorderThickness="2" BorderBrush="#FF1C1D1F" Canvas.Left="705" Canvas.Top="276" >
-                <Image x:Name= "player0" Height="354" Width="507" />
-            </Border>
-            <Border x:Name="playerTwo" BorderThickness="2" BorderBrush="#FF1C1D1F" Canvas.Left="78" Canvas.Top="276" >
-                <Image x:Name= "player1" Height="354" Width="507" />
-            </Border>
-            <Border x:Name="playerThree" BorderThickness="2" BorderBrush="#FF1C1D1F" Canvas.Left="1335" Canvas.Top="276" >
-                <Image x:Name= "player2" Height="354" Width="507" />
-            </Border>
-
-
-            <Button x:Name="buttonChoose" Tag="Interval" Click="button_Choose" BorderBrush="{x:Null}" Height="215" Width="215" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="851" Canvas.Top="800" RenderTransformOrigin="0.503,0.513" >
+            <Button x:Name="buttonOne" Tag="Interval" Click="button_One" BorderBrush="{x:Null}" Height="159" Width="173" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="275" Canvas.Top="465" RenderTransformOrigin="0.503,0.513" >
                 <Button.Background>
-                    <ImageBrush ImageSource="/Ressources/Images/choose.png" />
+                    <ImageBrush ImageSource="/Ressources/Images/num1.png" />
                 </Button.Background>
             </Button>
+            <Button x:Name="buttonTwo" Tag="Interval" Click="button_Two" BorderBrush="{x:Null}" Height="160" Width="174" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="885" Canvas.Top="877" RenderTransformOrigin="0.503,0.513" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Ressources/Images/num2.png" />
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonThree" Tag="Interval" Click="button_Three" BorderBrush="{x:Null}" Height="159" Width="173" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="1493" Canvas.Top="465" RenderTransformOrigin="0.503,0.513" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Ressources/Images/num3.png" />
+                </Button.Background>
+            </Button>
+            
             <Canvas x:Name="StickMen" Tag="Interval" Width="249" Height="195" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="1522" Canvas.Top="842"/>
-            <Button x:Name="buttonNext" Tag="Interval" Click="button_Next" BorderBrush="{x:Null}" Height="130" Width="130" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="1180" Canvas.Top="842" RenderTransformOrigin="0.503,0.513" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Ressources/Images/next.png" />
-                </Button.Background>
-            </Button>
-            <Button x:Name="buttonPrevious" Tag="Interval" Click="button_Previous" BorderBrush="{x:Null}" Height="130" Width="130" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="614" Canvas.Top="842" RenderTransformOrigin="0.503,0.513" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Ressources/Images/previous.png" />
-                </Button.Background>
-            </Button>
 
         </Canvas>
 

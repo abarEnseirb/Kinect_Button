@@ -165,6 +165,23 @@
     <Resource Include="Ressources\Images\next.png" />
     <Resource Include="Ressources\Images\previous.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\cameraImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\cameraImageViolet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\num1.png" />
+    <Resource Include="Ressources\Images\num2.png" />
+    <Resource Include="Ressources\Images\num3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\cctvIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
