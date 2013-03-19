@@ -96,8 +96,9 @@ namespace Kinect_Architecture
 
         public void button_Start(object sender, RoutedEventArgs e)
         {
+            Views.CameraOne CameraPage = new Views.CameraOne();
             Views.Menu MenuPage = new Views.Menu();
-            this.Content = MenuPage;
+            this.Content = CameraPage;
         }
 
         public void quitButton_Click(object sender, RoutedEventArgs e)
