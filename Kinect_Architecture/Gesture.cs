@@ -12,7 +12,7 @@ using Microsoft.Kinect;
     abstract class Gesture
     {
         /* Variables */
-        protected GestureController gestureController;
+        public GestureController gestureController;
         private string _gesture; // Needed to identify the gesture
         public event PropertyChangedEventHandler PropertyChanged;
         public String gestureKind
@@ -35,6 +35,7 @@ using Microsoft.Kinect;
         }
 
         public bool isGestureOn;
+        
 
         /* This method initialises all the gestures needed in the special case */
         abstract public void InitGesture();

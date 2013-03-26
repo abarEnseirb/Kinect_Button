@@ -15,7 +15,7 @@ namespace Kinect_Architecture
         private KinectSensor sensor;
         private SkeletonManagement[] SkeletonManagementData;
         public Curseur curseur;
-        private GestureCamera gestureCamera;
+        public GestureCamera gestureCamera;
 
 
         private Canvas StickMen;

@@ -105,5 +105,7 @@ namespace Kinect_Architecture
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+       
     }
 }
